@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css" type="text/css">
+    <title>Ece's Bakery</title>
+    <link rel="stylesheet" href="site.css">
+    <style>
+        .input-group{
+            margin-bottom: 20px;
+
+        }
+        .input-group input,
+        .input-group textarea,
+        .input-group select{
+            padding: 10px;
+            border: solid 1px black;
+            border-radius: 5px;
+            width: 50%;
+        }
+        label{
+            font-weight: 600;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="cheese.html">Cheesecake</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <aside><img src="icon.jpg" class="icon" alt="Ece's Bakery"></aside>
+        <article>
+            <h1>Order</h1>
+
+            <div class="cheese">
+                <img src="" />
+                 <div class="columns">
+                    <div class="title"></div>
+                    <div class="price"></div>
+                 </div>
+                 <p class="desc"></p>
+            </div>
+            <form action="http://localhost:7071/api/post" method="POST">
+                <div class="input-group">
+                <div><label for="first-name">First Name</label></div>
+                <div><input type="text" name="first-name" id="first-name"></div>
+            </div>
+            <div class="input-group">
+                <div><label for="last-name">Last Name</label></div>
+                <div><input type="text" name="last-name" id="last-name"></div>
+            </div>
+            <div class="input-group">
+                <div><label for="address">Address</label></div>
+                <div><input type="text" name="address" id="address"></div>
+            </div>
+            <div class="input-group">
+                <div><label for="state">State</label></div>
+                <div>
+                    <select name="state" id="state">
+                        <option value="" selected>Select One</option>
+                        <option value="Malatya">Malatya</option>
+                        <option value="Mersin">Mersin</option>
+                        <option value="İzmir">İzmir</option>
+                        <option value="Eskişehir">Eskişehir</option>
+                        <option value="İstanbul">İstanbul</option>
+                        <option value="Balıkesir">Balıkesir</option>
+                        <option value="Adana">Adana</option>
+                        <option value="Ankara">Ankara</option>
+                        <option value="Antalya">Antalya</option>
+
+                    </select>
+                </div>
+                <div class="input-group">
+                    <div><label for="comment">Commnets</label></div>
+                    <div>
+                        <textarea name="comments"
+                         id="commnets" 
+                         cols="30" 
+                         rows="10"
+                         ></textarea>
+                    </div>
+                </div>
+                <input type="reset" value="Reset" />
+                <input type="submit" value="Order" />
+            </div>
+            </form>
+        </article>
+    </main>
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="cheesecake.html">Cheesecake</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+<script>
+    window.addEventListener("DOMContentLoaded",function(e){
+        const order =localStorage.getItem("order");
+        if(order){
+            const cheeseorder = JSON.parse(order);
+            const cheese =document.querySelector(".cheese")
+        }
+    });  
+</script>
+</html>

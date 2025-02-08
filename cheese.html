@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css" type="text/css">
+    
+    <title>Cheesecake</title>
+  
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="cheese.html">Cheesecake</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <aside><img src="icon.jpg" class="icon" alt="Ece's Bakery"></aside>
+        <article>
+            <h1>Cheesecake</h1>
+            <section class="columns-desktop">
+                
+                <div class="cheese">
+                    <img src="c1.jpg"  width="200" height="200" alt="Lemon">
+                    <div class="columns">
+                        <div class="title"> Lemon Cheesecake </div>
+                        <div class="price"> $15</div>
+
+                    </div>
+                    <p class="desc"> Our famous lemon cheesecake</p>
+                    <button data-order="lemon-che">Order</button>
+                </div>
+                <div class="strawberry">
+                    <img src="c2.jpg" width="200" height="200" alt="straw">
+                    <div class="columns">
+                        <div class="title">Strawberry Cheesecake </div>
+                        <div class="price"> $13</div>
+                    </div>
+                        <p class="desc">Barbie's Cheesecake</p>
+                        <button data-order="straw-che">Order</button>
+                        
+                    
+                </div>
+            </section>
+    
+        </article>
+    </main>
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="cheesecake.html">Cheesecake</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+    
+</body>
+<script>
+    window.addEventListener("DOMContentLoaded",function(e) {
+      const orderButtons = document.querySelectorAll("button[data-order]");
+      orderButtons.forEach(function(button) {
+        button.addEventListener("click",function(e) {
+            const button = e.currentTarget;
+            const container = button.parentNode;
+
+            const order = {
+                id: button.getAttribute("data-order"),
+                title: container.querySelector(".title"),
+                price: container.querySelector(".price"),
+                desc: container.querySelector(".desc"),
+
+            };
+
+            localStorage.setItem("order" , JSON.stringify(order));
+            const url = window.location.href.replace("cheese.html","order.html");
+            window.location.href = url;
+        });
+      });
+    });
+</script>
+</html>
